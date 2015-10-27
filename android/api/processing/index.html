@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="generator" content="Hugo 0.14" />
+<base href="http://support.vidhance.com/">
+<title>  &middot; Vidhance Support </title>
+<link rel="canonical" href="http://support.vidhance.com/android/api/processing/">
+<link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/text.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/menu.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/zenburn.min.css">
+
+</head>
+<body id="inner-wrap">
+	<header id="top"><a href="/"><img src="/img/logotype.png"></a>
+<a id="nav-open-btn" class="nav-btn" href="#nav">Navigation</a>
+</header>
+	<nav id="nav">
+		<div class="block">
+			<ul>
+
+	<li>
+		<a href="/start/">start</a>
+		
+	</li>
+
+	<li>
+		<a href="/vidview/">vidview</a>
+		
+	</li>
+
+	<li>
+		<a href="/android/">android</a>
+		<ul>
+
+	<li>
+		<a href="/android/evaluate/">evaluate</a>
+		
+	</li>
+
+	<li>
+		<a href="/android/gettingstarted/">getting started</a>
+		
+	</li>
+
+	<li>
+		<a href="/android/apireference/">API reference</a>
+		
+	</li>
+
+	<li>
+		<a href="/android/faq/">FAQ</a>
+		
+	</li>
+
+	<li>
+		<a href="/android/validate/">validate</a>
+		
+	</li>
+
+</ul>
+
+	</li>
+
+	<li>
+		<a href="/pc/">pc</a>
+		<ul>
+
+	<li>
+		<a href="/pc/download/">download</a>
+		
+	</li>
+
+</ul>
+
+	</li>
+
+</ul>
+
+			<a id="nav-close-btn" class="close-btn" href="#top">Return to Content</a>
+		</div>
+	</nav>
+	<main>
+		<section><article
+			
+			>
+	<header><h1></h1></header>
+	
+	
+	<main>
+		
+			
+
+<p><a href="./android/apireference/index.html">Back to API overview</a></p>
+
+<h1 id="processing-frames:9633d27b7a2b1f04c4bfd4a47cc90697">Processing frames</h1>
+
+<h2 id="overview:9633d27b7a2b1f04c4bfd4a47cc90697">Overview</h2>
+
+<hr />
+
+<h3 id="vidhance-context-videostart:9633d27b7a2b1f04c4bfd4a47cc90697">vidhance_context_videoStart</h3>
+
+<p>Prepares a Vidhance context for a new video stream. This function must be called before the first frame of the stream is sent to Vidhance.</p>
+
+<pre><code class="language-c">void vidhance_context_videoStart(vidhance_context* context);
+</code></pre>
+
+<h4 id="parameters:9633d27b7a2b1f04c4bfd4a47cc90697">Parameters</h4>
+
+<p><em>context</em> A Vidhance context.</p>
+
+<hr />
+
+<h3 id="vidhance-context-videostop:9633d27b7a2b1f04c4bfd4a47cc90697">vidhance_context_videoStop</h3>
+
+<p>Ends a processing session for the Vidhance context. This function must be called after the last frame of the stream is sent to Vidhance.</p>
+
+<pre><code class="language-c">void vidhance_context_videoStop(vidhance_context* context);
+</code></pre>
+
+<h4 id="parameters-1:9633d27b7a2b1f04c4bfd4a47cc90697">Parameters</h4>
+
+<p><em>context</em> A Vidhance context.</p>
+
+<hr />
+
+<h3 id="vidhance-context-process:9633d27b7a2b1f04c4bfd4a47cc90697">vidhance_context_process</h3>
+
+<p>Process a frame in the specified context using separate buffers as input and output.</p>
+
+<pre><code class="language-c">void vidhance_context_process(vidhance_context* context, kean_draw_image* input, kean_draw_image* output);
+</code></pre>
+
+<h4 id="parameters-2:9633d27b7a2b1f04c4bfd4a47cc90697">Parameters</h4>
+
+<p><em>context</em> The context in which to process.</p>
+
+<p><em>input</em> The input frame.</p>
+
+<p><em>output</em> The output frame. This is where the resulting frame is written.</p>
+
+<hr />
+
+<h3 id="vidhance-context-process-inplace:9633d27b7a2b1f04c4bfd4a47cc90697">vidhance_context_process_inplace</h3>
+
+<p>Process a frame in the specified context using the same buffer as input and output.</p>
+
+<pre><code class="language-c">void vidhance_context_process_inplace(vidhance_context* context, kean_draw_image* input);
+</code></pre>
+
+<h4 id="parameters-3:9633d27b7a2b1f04c4bfd4a47cc90697">Parameters</h4>
+
+<p><em>context</em> The context in which to process.</p>
+
+<p><em>input</em> The input frame. The buffer is overwritten with the resulting frame.</p>
+
+<hr />
+
+<h3 id="vidhance-context-processpreview:9633d27b7a2b1f04c4bfd4a47cc90697">vidhance_context_processPreview</h3>
+
+<p>Process the preview buffer.</p>
+
+<pre><code class="language-c">void vidhance_context_processPreview(vidhance_context* context, kean_draw_image* input, kean_draw_image* output);
+</code></pre>
+
+<h4 id="parameters-4:9633d27b7a2b1f04c4bfd4a47cc90697">Parameters</h4>
+
+<p><em>context</em> The context in which to process.</p>
+
+<p><em>input</em> The input frame.</p>
+
+<p><em>output</em> The output frame. This is where the resulting frame is written.</p>
+
+<hr />
+
+<h3 id="kean-math-intsize2d:9633d27b7a2b1f04c4bfd4a47cc90697">kean_math_intSize2D</h3>
+
+<p>Image resolution object used by Vidhance.</p>
+
+<pre><code class="language-c">typedef struct _kean_math_intSize2D kean_math_intSize2D;
+kean_math_intSize2D kean_math_intSize2D_new(int width, int height);
+</code></pre>
+
+<hr />
+
+<h3 id="kean-draw-image:9633d27b7a2b1f04c4bfd4a47cc90697">kean_draw_image</h3>
+
+<p>The base image class used by Vidhance.</p>
+
+<pre><code class="language-c">typedef struct _kean_draw_image kean_draw_image;
+</code></pre>
+
+<hr />
+
+<h3 id="kean-draw-gpu-android-graphicbufferyuv420semiplanar:9633d27b7a2b1f04c4bfd4a47cc90697">kean_draw_gpu_android_graphicBufferYuv420Semiplanar</h3>
+
+<p>The image class used to create images from YUV420SP buffers located in graphics memory.</p>
+
+<pre><code class="language-c">typedef struct _kean_draw_gpu_android_graphicBufferYuv420Semiplanar kean_draw_gpu_android_graphicBufferYuv420Semiplanar;
+</code></pre>
+
+<hr />
+
+<h2 id="example:9633d27b7a2b1f04c4bfd4a47cc90697">Example</h2>
+
+<p>Prepare the Vidhance context for a new video session.</p>
+
+<pre><code class="language-c">vidhance_context_videoStart(context);
+</code></pre>
+
+<p>Process frames by creating a <em>kean_draw_gpu_android_graphicBufferYuv420Semiplanar</em> from the GraphicBuffer from the camera.</p>
+
+<pre><code class="language-c">void VidhanceProcessor::processVideoCapture(sp&lt;GraphicBuffer&gt; input, sp&lt;GraphicBuffer&gt; output) {
+	int horizontalStride = ALIGN(input-&gt;width, 64);
+	int verticalStride = ALIGN(input-&gt;height, 32);
+	int uvOffset = horizontalStride * verticalStride;
+
+	kean_draw_gpu_android_graphicBufferYuv420Semiplanar* inputImage = kean_draw_gpu_android_graphicBufferYuv420Semiplanar_new((void*)input.get(),
+			(void*)input-&gt;getNativeBuffer(), (void*) input-&gt;handle,
+			kean_math_intSize2D_new(input-&gt;width, input-&gt;height), horizontalStride, input-&gt;format, uvOffset);
+	kean_draw_gpu_android_graphicBufferYuv420Semiplanar* outputImage = kean_draw_gpu_android_graphicBufferYuv420Semiplanar_new((void*)output.get(),
+			(void*)output-&gt;getNativeBuffer(), (void*) output-&gt;handle,
+			kean_math_intSize2D_new(output-&gt;width, output-&gt;height), horizontalStride, output-&gt;format, uvOffset);
+	vidhance_context_process(context, (kean_draw_image*) inputImage, (kean_draw_image*) outputImage);
+}
+</code></pre>
+
+<p>Process preview frames.</p>
+
+<pre><code class="language-c">void VidhanceProcessor::processPreview(sp&lt;GraphicBuffer&gt; input, sp&lt;GraphicBuffer&gt; output) {
+	kean_draw_gpu_android_graphicBufferYuv420Semiplanar* inputImage = kean_draw_gpu_android_graphicBufferYuv420Semiplanar_new((void*)input.get(),
+			(void*)input-&gt;getNativeBuffer(), (void*) input-&gt;handle,
+			kean_math_intSize2D_new(input-&gt;width, input-&gt;height), input-&gt;width, input-&gt;format, 0);
+	kean_draw_gpu_android_graphicBufferYuv420Semiplanar* outputImage = kean_draw_gpu_android_graphicBufferYuv420Semiplanar_new((void*)output.get(),
+			(void*)output-&gt;getNativeBuffer(), (void*) output-&gt;handle,
+			kean_math_intSize2D_new(output-&gt;width, output-&gt;height), output-&gt;width, output-&gt;format, 0);
+	vidhance_context_processPreview(context, (kean_draw_image*) inputImage, (kean_draw_image*) outputImage);
+}
+</code></pre>
+
+<p>End the video session.</p>
+
+<pre><code class="language-c">vidhance_context_videoStop(context);
+</code></pre>
+
+		
+		</main>
+	<footer></footer>
+</article>
+</section>
+	</main>
+	<footer>		<p>copyright &copy; Imint Image Intelligence AB</p>
+</footer>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/script/doubleTapToGo.js"></script>
+<script src="/script/modernizr.js"></script>
+<script src="/script/main.js"></script>
+<script>
+	$(document).ready(function() {
+		$('nav li:has(ul)').doubleTapToGo();
+		
+	})
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+$('#downloadForm').on('submit', function(e) {
+	key = $("input:first").val();
+	url = "https://aurora.imint.se/data/"+key+"/vidhance-sdk-pc/vidhance_0.7.0_32bit.zip";
+	$('#hiddenIFrame').attr("src", url);
+	return false;
+});
+
+var $_Tawk_API={},$_Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/550802b2059b265f5423f78e/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+
+
+</body>
+</html>
